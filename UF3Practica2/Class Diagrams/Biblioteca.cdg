@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Biblioteca">
+  <ClassDiagramComponents>
+    <Class name="Libros" package="" visibility="public" xPosition="67.0" yPosition="23.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="tipo" type="String" visibility="private"/>
+        <Field name="editorial" type="String" visibility="private"/>
+        <Field name="autor" type="String" visibility="private"/>
+        <Field name="ano" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="tipo"/>
+          <Argument type="String" name="editorial"/>
+          <Argument type="String" name="autor"/>
+          <Argument type="int" name="ano"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getTipo" returnType="String" visibility="public"/>
+        <Method name="getEditorial" returnType="String" visibility="public"/>
+        <Method name="getAutor" returnType="String" visibility="public"/>
+        <Method name="getAno" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Autor" package="" visibility="public" xPosition="607.0" yPosition="80.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="nacionalidad" type="String" visibility="private"/>
+        <Field name="fechaNacimiento" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="nacionalidad"/>
+          <Argument type="String" name="fechaNacimiento"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getNacionalidad" returnType="String" visibility="public"/>
+        <Method name="getFechaNacimiento" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CopiaLibro" package="" visibility="public" xPosition="22.0" yPosition="449.0">
+      <Fields>
+        <Field name="identificador" type="int" visibility="private"/>
+        <Field name="estadoCopia" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="tipo"/>
+          <Argument type="String" name="editorial"/>
+          <Argument type="String" name="autor"/>
+          <Argument type="int" name="ano"/>
+          <Argument type="int" name="identificador"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setEstadoCopia" returnType="void" visibility="public">
+          <Argument type="String" name="estadoCopia"/>
+        </Method>
+        <Method name="getEstadoCopia" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Lector" package="" visibility="public" xPosition="769.0" yPosition="396.0">
+      <Fields>
+        <Field name="dni" type="String" visibility="private"/>
+        <Field name="maximoLibros" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="dni"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDni" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="escriben" source="Autor" target="Libros" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Lee" source="Lector" target="CopiaLibro" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="se hacen" source="CopiaLibro" target="Libros" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
